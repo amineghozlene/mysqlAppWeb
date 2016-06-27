@@ -11,6 +11,11 @@ namespace mysqlAppWeb.Controllers
 {
     public class PersonneController : Controller
     {
+        
+        public ActionResult Login()
+        {
+            return View();
+        }
         public ActionResult Create()
         {
             return View();

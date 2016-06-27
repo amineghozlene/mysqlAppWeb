@@ -15,7 +15,7 @@
         <h4>person</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <form action="~/Views/Personne/Create.cshtml" method="get">
+        <form action="http://localhost:50218/Personne/Create" method="get">
             <div class="form-group">
                 @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
