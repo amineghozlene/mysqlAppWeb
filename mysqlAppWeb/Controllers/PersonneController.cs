@@ -1,7 +1,5 @@
-﻿using mysqlAppWeb.Controllers;
-using mysqlAppWeb.Models;
+﻿using mysqlAppWeb.Models;
 using NHibernate;
-using NHibernate.Cfg;
 using NHibernate.Linq;
 using System;
 using System.Linq;
@@ -12,10 +10,7 @@ namespace mysqlAppWeb.Controllers
     public class PersonneController : Controller
     {
         
-        public ActionResult Login()
-        {
-            return View();
-        }
+       
         public ActionResult Create()
         {
             return View();
