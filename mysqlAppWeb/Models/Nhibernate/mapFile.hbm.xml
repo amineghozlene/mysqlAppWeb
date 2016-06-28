@@ -18,7 +18,29 @@
     <property name="Password" column="password"
               type="String"></property>
     <property name="NumTel" column="numTel"
-              type="String"></property> 
+              type="String"></property>
+   <many-to-one not-null="true" name="university" column="univeristy_id" cascade="all"/>
+  </class>
+
+  <class name="University" table="university" dynamic-update="true">
+    <cache usage="read-write"/>
+    <id name="Id" column="id" type="String">
+      <generator class="native"/>
+    </id>
+    <property name="Name" column="name"
+              type="String"></property>
+    <property name="Adress" column="adress"
+              type="String"></property>
+    <property name="Email" column="email"
+              type="String"></property>
+    <property name="NumTel" column="numTel"
+              type="byte"></property>
+    <property name="NumFax" column="numFax"
+              type="String"></property>
+    <property name="WebSite" column="weSite"
+              type="String"></property>
+    <property name="Rib" column="rib"
+              type="String"></property>
   </class>
 
   

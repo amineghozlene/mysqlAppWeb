@@ -7,8 +7,8 @@ namespace mysqlAppWeb.Models
 {
     public class University
     {
-        private int id;
-        public virtual int Id
+        private String id;
+        public virtual String Id
         {
             get { return id; }
             set { id = value; }
@@ -55,6 +55,12 @@ namespace mysqlAppWeb.Models
             get { return rib; }
             set { rib = value; }
         }
-        
+       /* private IList<person> users;
+        public IList<person> Users
+        {
+            get { return users; }
+            set { users = value; }
+        }*/
+
     }
 }

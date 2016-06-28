@@ -4,6 +4,7 @@ using NHibernate.Linq;
 using System;
 using System.Linq;
 using System.Web.Mvc;
+using System.Web.SessionState;
 
 namespace mysqlAppWeb.Controllers
 {
@@ -16,13 +17,17 @@ namespace mysqlAppWeb.Controllers
             return View();
         }
         //Create : Personne
-        [HttpPost]
+       [HttpPost]
         public ActionResult Create(Administrator personne)
         {
             try
             {
                 using (ISession session = NhibernateSession.OpenSession())
                 {
+                   var univ = session.Get<University>("enis");
+                    personne.University = univ;
+                    return Content(univ.Id);
+                  //  return Content(personne.FirstName+" etudie à "+personne.University.Name);
                     using (ITransaction transaction = session.BeginTransaction())
                     {
                         session.Save(personne);
@@ -30,7 +35,7 @@ namespace mysqlAppWeb.Controllers
                     }
                 }
 
-                return RedirectToAction("Index");
+                //return RedirectToAction("Index");
             }
             catch (Exception e)
             {
@@ -41,19 +46,16 @@ namespace mysqlAppWeb.Controllers
         // Read: Personne
         public ActionResult Index()
         {
-            using (ISession session = NhibernateSession.OpenSession())
-            {
-                var personnes = session.Query<person>().ToList();
-                return View(personnes);
-            }
-           
+             using (ISession session = NhibernateSession.OpenSession())
+             {
+                 var personnes = session.Query<person>().ToList();
+                 return View(personnes);
+             }
             
-            // return "hello wolrd !";
+          //  var personne = Session["user"];
+           
         }
-
-        
-        
-
+ 
         //Update : Personne
         public ActionResult Edit(String id)
         {

@@ -56,5 +56,11 @@ namespace mysqlAppWeb.Models
             get { return adress; }
             set { adress = value; }
         }
+        private University university;
+        public virtual University University
+        {
+            get { return university; }
+            set { university = value; }
+        }
     }
 }
