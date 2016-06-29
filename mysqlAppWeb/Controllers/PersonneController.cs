@@ -24,7 +24,7 @@ namespace mysqlAppWeb.Controllers
             {*/
                 using (ISession session = NhibernateSession.OpenSession())
                 {
-                   var univ = session.Get(University, personne.University.Name);
+                   var univ = session.Get<University>(personne.University.Name);
                     personne.University = univ;
                   //  return Content(univ.Id);
                   //  return Content(personne.FirstName+" etudie à "+personne.University.Name);
