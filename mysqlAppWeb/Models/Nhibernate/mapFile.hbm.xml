@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true" assembly="mysqlAppWeb" namespace="mysqlAppWeb.Models">
-  <class name="Administrator" table="user" dynamic-update="true">
+  <class name="person" table="user" dynamic-update="true">
     <cache usage="read-write"/>
     <id name="Iduser" column="idUser" type="String">
-      <generator class="native"/>
+      
     </id>
     <property name="FirstName" column="firstName"
               type="String"></property>
@@ -19,13 +19,15 @@
               type="String"></property>
     <property name="NumTel" column="numTel"
               type="String"></property>
-   <many-to-one not-null="true" name="university" column="univeristy_id" cascade="all"/>
+    <property name="Role" column="role"
+              type="String"></property>
+   <many-to-one not-null="true" name="University" class ="University" column="univeristy_id" />
   </class>
 
   <class name="University" table="university" dynamic-update="true">
     <cache usage="read-write"/>
     <id name="Id" column="id" type="String">
-      <generator class="native"/>
+     
     </id>
     <property name="Name" column="name"
               type="String"></property>
@@ -37,12 +39,13 @@
               type="byte"></property>
     <property name="NumFax" column="numFax"
               type="String"></property>
-    <property name="WebSite" column="weSite"
+    <property name="WebSite" column="webSite"
               type="String"></property>
     <property name="Rib" column="rib"
               type="String"></property>
+    <bag name="Users" cascade="all-delete-orphan">
+      <key column="university_id"/>
+      <one-to-many class="person"/>
+    </bag>
   </class>
-
-  
-  
 </hibernate-mapping>

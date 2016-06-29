@@ -16,7 +16,7 @@ namespace mysqlAppWeb
             routes.MapRoute(
                 "Default",                                              // Route name
                 "{controller}/{action}/{id}",                           // URL with parameters
-                new { controller = "Personne", action = "Create", id = UrlParameter.Optional }  // Parameter defaults
+                new { controller = "Login", action = "Index", id = UrlParameter.Optional }  // Parameter defaults
             );
             /*routes.MapRoute(
                 "Login",                                              // Route name

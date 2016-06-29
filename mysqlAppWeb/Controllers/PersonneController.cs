@@ -18,15 +18,15 @@ namespace mysqlAppWeb.Controllers
         }
         //Create : Personne
        [HttpPost]
-        public ActionResult Create(Administrator personne)
+        public ActionResult Create(person personne)
         {
-            try
-            {
+          /*  try
+            {*/
                 using (ISession session = NhibernateSession.OpenSession())
                 {
-                   var univ = session.Get<University>("enis");
+                   var univ = session.Get(University, personne.University.Name);
                     personne.University = univ;
-                    return Content(univ.Id);
+                  //  return Content(univ.Id);
                   //  return Content(personne.FirstName+" etudie à "+personne.University.Name);
                     using (ITransaction transaction = session.BeginTransaction())
                     {
@@ -35,12 +35,12 @@ namespace mysqlAppWeb.Controllers
                     }
                 }
 
-                //return RedirectToAction("Index");
-            }
+                return RedirectToAction("Index");
+           /* }
             catch (Exception e)
             {
                 return View();
-            }
+            }*/
         }
         
         // Read: Personne

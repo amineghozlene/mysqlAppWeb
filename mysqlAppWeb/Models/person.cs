@@ -5,7 +5,7 @@ using System.Web;
 
 namespace mysqlAppWeb.Models
 {
-    public abstract class person
+    public class person
     {
         
         private string firstName;
@@ -55,6 +55,12 @@ namespace mysqlAppWeb.Models
         {
             get { return adress; }
             set { adress = value; }
+        }
+        private String role;
+        public virtual String Role
+        {
+            get { return role; }
+            set { role = value; }
         }
         private University university;
         public virtual University University

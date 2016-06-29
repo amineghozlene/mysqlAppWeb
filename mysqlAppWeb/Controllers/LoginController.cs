@@ -16,7 +16,7 @@ namespace mysqlAppWeb.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Index(Administrator p)
+        public ActionResult Index(person p)
         {
             try
             {

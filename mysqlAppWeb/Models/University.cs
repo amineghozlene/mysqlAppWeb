@@ -55,12 +55,12 @@ namespace mysqlAppWeb.Models
             get { return rib; }
             set { rib = value; }
         }
-       /* private IList<person> users;
-        public IList<person> Users
+        private IList<person> users;
+        public virtual IList<person> Users
         {
             get { return users; }
             set { users = value; }
-        }*/
+        }
 
     }
 }

@@ -15,8 +15,8 @@ namespace mysqlAppWeb.Controllers
             var configuration = new Configuration();
             var configurationPath = HttpContext.Current.Server.MapPath(@"~\Models\Nhibernate\nhibernate.cfg.xml");
             configuration.Configure(configurationPath);
-            var employeeConfigurationFile = HttpContext.Current.Server.MapPath(@"~\Models\Nhibernate\mapFile.hbm.xml");
-            configuration.AddFile(employeeConfigurationFile);
+            var MyAppConfigurationFile = HttpContext.Current.Server.MapPath(@"~\Models\Nhibernate\mapFile.hbm.xml");
+            configuration.AddFile(MyAppConfigurationFile);
             ISessionFactory sessionFactory = configuration.BuildSessionFactory();
             return sessionFactory.OpenSession();
         }
